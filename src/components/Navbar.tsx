@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
           Biscuit City Farm
         </Typography>
         {/* Desktop links */}
@@ -30,6 +30,7 @@ const Navbar = () => {
               color="inherit"
               component={RouterLink}
               to={link.path}
+              sx={{ textTransform: 'none', fontWeight: 'bold' }}
             >
               {link.label}
             </Button>
