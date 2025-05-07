@@ -1,39 +1,10 @@
-import React, { useState } from 'react';
 import { Container, Typography, Box, TextField, Button } from '@mui/material';
+import { useForm, ValidationError } from '@formspree/react';
+
+const FORMSPREE_FORM_ID = "xldbndyv";
 
 const Contact = () => {
-  const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    message: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const endpoint = 'https://formspree.io/f/xldbndyv';
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        message: form.message,
-      }),
-    });
-    if (response.ok) {
-      setSubmitted(true);
-      setForm({ firstName: '', lastName: '', email: '', message: '' });
-    } else {
-      alert('There was an error sending your message.');
-    }
-  };
+  const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
 
   return (
     <Box
@@ -66,10 +37,10 @@ const Contact = () => {
           <Typography variant="h4" component="h1" gutterBottom>
             Contact Us
           </Typography>
-          {submitted ? (
-              <Typography variant="h6" sx={{ my: 2 }}>
-                Thank you for your message!
-              </Typography>
+          {state.succeeded ? (
+            <Typography variant="h6" sx={{ my: 2 }}>
+              Thank you for your message!
+            </Typography>
           ) : (
             <Box component="form" sx={{ mt: 3 }} onSubmit={handleSubmit}>
               <Typography>
@@ -82,8 +53,6 @@ const Contact = () => {
                   fullWidth
                   label="First Name"
                   name="firstName"
-                  value={form.firstName}
-                  onChange={handleChange}
                   variant="outlined"
                 />
                 <TextField
@@ -91,8 +60,6 @@ const Contact = () => {
                   fullWidth
                   label="Last Name"
                   name="lastName"
-                  value={form.lastName}
-                  onChange={handleChange}
                   variant="outlined"
                 />
               </Box>
@@ -103,10 +70,9 @@ const Contact = () => {
                   label="Email"
                   name="email"
                   type="email"
-                  value={form.email}
-                  onChange={handleChange}
                   variant="outlined"
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </Box>
               <Box sx={{ mb: 2 }}>
                 <TextField
@@ -116,10 +82,9 @@ const Contact = () => {
                   name="message"
                   multiline
                   rows={4}
-                  value={form.message}
-                  onChange={handleChange}
                   variant="outlined"
                 />
+                <ValidationError prefix="Message" field="message" errors={state.errors} />
               </Box>
               <Box>
                 <Button
@@ -127,6 +92,7 @@ const Contact = () => {
                   variant="contained"
                   color="primary"
                   size="large"
+                  disabled={state.submitting}
                 >
                   Send Message
                 </Button>
