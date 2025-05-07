@@ -1,7 +1,7 @@
 {
   "name": "biscuit-city-farm",
   "homepage": "https://biscuitcityfarm.com",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -30,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "push": "yarn predeploy && yarn deploy"
   },
   "eslintConfig": {
     "extends": [

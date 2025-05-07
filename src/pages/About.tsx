@@ -35,7 +35,7 @@ const About = () => {
           </Typography>
           <Stack spacing={3}>
             <Typography>
-              Ross & Rachael are first generation farmers with day jobs in tech and education. Together they are rehabilitating a 7 acre property in Charlestown, RI.
+              Ross & Rachael are rehabilitating a 7 acre property in Charlestown, RI. They work day jobs in tech and education but spend their weekends and evenings doing projects on the homestead.
             </Typography>
             <Typography>
               The property had been abandoned for years and was in a state of disrepair. Little by little the brambles and dead wood are being cleaned up. Fruit trees are being planted. Walking paths are being woodchipped. And the old farmhouse is being renovated.
