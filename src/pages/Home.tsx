@@ -8,7 +8,7 @@ const Home = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        py: 6,
+        py: 4,
         position: 'relative',
         overflow: 'hidden',
         '::before': {
@@ -98,13 +98,13 @@ const Home = () => {
                 <img src="/podcast-cover-art.png" alt="The Rookie Homesteader Podcast Cover" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 12 }} />
               </Box>
               <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 1, width: '100%' }}>
-                <Button variant="outlined" color="primary" size="large" href="#" target="_blank" fullWidth>
+                <Button variant="outlined" color="primary" size="large" href="https://podcasts.apple.com/us/podcast/the-rookie-homesteader/id1612464097" target="_blank" fullWidth>
                   APPLE PODCASTS
                 </Button>
-                <Button variant="outlined" color="primary" size="large" href="#" target="_blank" fullWidth>
+                <Button variant="outlined" color="primary" size="large" href="https://open.spotify.com/show/5kOs7siRZxriQizS1ZpuuT?si=ZVBEEdqqTP6dV8rhFllkhg" target="_blank" fullWidth>
                   SPOTIFY
                 </Button>
-                <Button variant="outlined" color="primary" size="large" href="#" target="_blank" fullWidth>
+                <Button variant="outlined" color="primary" size="large" href="https://www.buzzsprout.com/1941530" target="_blank" fullWidth>
                   RSS FEED
                 </Button>
               </Box>

@@ -5,7 +5,7 @@ const Contact = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        py: 6,
+        py: 4,
         position: 'relative',
         overflow: 'hidden',
         '::before': {
@@ -27,8 +27,6 @@ const Contact = () => {
             borderRadius: 4,
             boxShadow: 2,
             p: { xs: 2, md: 4 },
-            mt: 4,
-            mb: 4,
           }}
         >
           <Typography variant="h4" component="h1" gutterBottom>
