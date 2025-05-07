@@ -1,4 +1,5 @@
 import { Container, Typography, Box, Button, useTheme, useMediaQuery } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Home = () => {
   const theme = useTheme();
@@ -64,7 +65,8 @@ const Home = () => {
               color="primary"
               size="large"
               sx={{ textTransform: 'none', fontWeight: 'bold', mb: 4 }}
-              href="/contact"
+              component={RouterLink}
+              to="/contact"
             >
               Contact Us
             </Button>
